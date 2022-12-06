@@ -1,0 +1,112 @@
+
+.articleBody div blockquote p {
+	color: var(--color-heading);
+	margin-left: calc(-1 * var(--spacing-6));
+	margin-right: var(--spacing-8);
+	padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
+	border-left: none;
+	font-style: inherit;
+	margin-bottom: var(--spacing-8);
+	font-size: 1.5rem;
+}
+
+.articleBody div blockquote p {
+	color: var(--color-heading);
+	margin-left: calc(-1 * var(--spacing-6));
+	margin-right: var(--spacing-8);
+	padding: var(--spacing-0) var(--spacing-0) var(--spacing-0) var(--spacing-6);
+	border-left: none;
+	font-style: inherit;
+	margin-bottom: var(--spacing-8);
+	font-size: 1.5rem;
+}
+
+.articleBody div blockquote p {
+	color: var(--color-text-light);
+	font-size: 1.5rem;
+	font-weight: 400;
+	font-variant: all-small-caps;
+	margin: 0;
+}
+
+.articleBody div blockquote p:first-child {
+	padding: 2rem 2rem 0;
+}
+
+.articleBody div blockquote p:last-child {
+	padding: 0 2rem 2rem 2rem;
+}
+
+.articleBody div blockquote p em {
+	text-align: right;
+	display: block;
+}
+
+.articleBody div blockquote h1 em,
+.articleBody div blockquote h2 em,
+.articleBody div blockquote h3 em,
+.articleBody div blockquote h4 em,
+.articleBody div blockquote h5 em,
+.articleBody div blockquote h6 em {
+	text-align: center;
+	display: block;
+}
+
+.articleBody div blockquote h1,
+.articleBody div blockquote h2,
+.articleBody div blockquote h3,
+.articleBody div blockquote h4,
+.articleBody div blockquote h5,
+.articleBody div blockquote h6 {
+	padding: 1rem 2rem;
+	font-family: var(--fontFamily-serif);
+	font-weight: var(--fontWeight-normal);
+	position: relative;
+	z-index: 1;
+}
+
+.articleBody div blockquote h1:first-child>*::before,
+.articleBody div blockquote h2:first-child>*::before,
+.articleBody div blockquote h3:first-child>*::before,
+.articleBody div blockquote h4:first-child>*::before,
+.articleBody div blockquote h5:first-child>*::before,
+.articleBody div blockquote h6:first-child>*::before {
+	content: '“';
+
+	color: var(--color-primary);
+	font-family: 'Oswald', sans-serif;
+	line-height: 0;
+	margin: 0 1rem;
+}
+
+.articleBody div blockquote h1:last-child>*::after,
+.articleBody div blockquote h2:last-child>*::after,
+.articleBody div blockquote h3:last-child>*::after,
+.articleBody div blockquote h4:last-child>*::after,
+.articleBody div blockquote h5:last-child>*::after,
+.articleBody div blockquote h6:last-child>*::after {
+	content: '”';
+
+	color: var(--color-primary);
+	font-family: 'Oswald', sans-serif;
+	z-index: 0;
+	line-height: 0;
+	margin: 0 1rem;
+}
+
+@media screen and (max-width: 876px){
+    .articleBody div blockquote p {
+        font-size: 1.2rem;
+    }
+}
+
+.articleBody div img{
+    width: 100%;
+}
+.articleBody div p img[data-title]::after {
+    content: attr(data-title);
+    
+    color: #111;
+
+    visibility: visible;
+}

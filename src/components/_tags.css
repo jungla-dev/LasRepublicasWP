@@ -1,0 +1,29 @@
+.global-wrapper.tags .title-page {
+    margin: 4rem 0 5rem 0;
+  }
+  
+  .global-wrapper.tags .title-page .smallTitle {
+    text-align: center;
+    color: var(--color-text-light);
+    font-size: var(--fontSize-0);
+    font-weight: 600;
+    opacity: 0.7;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    width: 100%;
+    display: block;
+  }
+  
+  .global-wrapper.tags .title-page .tag {
+    width: 100%;
+    display: block;
+    text-align: center;
+    font-size: var(--fontSize-5);
+    font-weight: 600;
+    word-wrap: break-word;
+  }
+  @media screen and (max-width: 576px) {
+    .global-wrapper.tags .title-page .tag {
+      font-size: var(--fontSize-4);
+    }
+  }

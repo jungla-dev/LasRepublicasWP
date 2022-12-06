@@ -1,10 +1,14 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "JUNGLA",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "Formas de existencia. Cuerpos, flujos, palpitaciones que importan en este gran cuerpo llamado planeta Tierra.",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": "Monica Nepota",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.2.1",
+    "@fortawesome/free-brands-svg-icons": "^6.2.1",
+    "@fortawesome/react-fontawesome": "^0.2.0",
+    "classnames": "^2.3.2",
     "gatsby": "^5.2.0",
     "gatsby-plugin-image": "^3.2.0",
     "gatsby-plugin-manifest": "^5.2.0",
@@ -12,7 +16,10 @@
     "gatsby-source-filesystem": "^5.2.0",
     "gatsby-transformer-sharp": "^5.2.0",
     "react": "^18.2.0",
-    "react-dom": "^18.2.0"
+    "react-device-detect": "^2.2.2",
+    "react-dom": "^18.2.0",
+    "react-sticky": "^6.0.3",
+    "shapes": "https://gitlab.com/RagoliGL/columns.git"
   },
   "devDependencies": {
     "prettier": "^2.7.1"
