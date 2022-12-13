@@ -609,6 +609,11 @@ a:focus {
   -o-transition: all 0.1s ease;
   -ms-transition: all 0.1s ease;
   transition: all 0.1s ease;
+  overflow: hidden;
+}
+
+.post-list-item .img-container img{
+  width: 100%;
 }
 
 .post-list-item .img-container:hover {
