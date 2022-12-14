@@ -29,9 +29,15 @@ const IndexPage = ({ data }) => {
   const location = useLocation()
   const slug = location?.pathname.replace("blog/", "").replaceAll("/", "")
   const postUrl = `https://www.lasrepublicasdelosalvaje.blog/${location}`
-  const postData = data?.allWpPost?.nodes.find(post => post.slug === slug)
+  const postData = data?.allWpPost?.nodes?.find(post => post.slug === slug)
   
-  const { title, date, featuredImage, author, categories, content } = postData
+
+  const { title, date, featuredImage, author, categories, content } = postData || {
+    title: '', date: '', featuredImage: '', author: '', categories: '', content : ''
+  }
+
+
+
 
   const { mediaItemUrl: image } = featuredImage?.node
   const {name: autor} = author?.node
