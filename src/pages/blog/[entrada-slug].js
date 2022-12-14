@@ -37,10 +37,8 @@ const IndexPage = ({ data }) => {
   }
 
 
-
-
-  const { mediaItemUrl: image } = featuredImage?.node
-  const {name: autor} = author?.node
+  const image = featuredImage?.node?.mediaItemUrl.image || ''
+  const autor = author?.node?.name
   const tags = categories?.nodes
 
   return (
