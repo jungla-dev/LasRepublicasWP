@@ -1,5 +1,5 @@
 
-module.exports = async ( { actions} ) => {
+module.exports = async ( { actions } ) => {
 
 	const { createPage } = actions;
 

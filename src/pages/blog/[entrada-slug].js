@@ -6,12 +6,12 @@ import { Link } from "gatsby"
 import Layout from "../../components/layout"
 import Seo from "../../components/seo"
 import {
-	TwitterShareButton,
-	TwitterIcon,
-	FacebookShareButton,
-	FacebookIcon,
-	WhatsappShareButton,
-	WhatsappIcon,
+  TwitterShareButton,
+  TwitterIcon,
+  FacebookShareButton,
+  FacebookIcon,
+  WhatsappShareButton,
+  WhatsappIcon,
 } from "react-share"
 // import {
 // 	iconMontana2,
@@ -30,14 +30,18 @@ const IndexPage = ({ data }) => {
   const slug = location?.pathname.replace("blog/", "").replaceAll("/", "")
   const postUrl = `https://www.lasrepublicasdelosalvaje.blog/${location}`
   const postData = data?.allWpPost?.nodes?.find(post => post.slug === slug)
-  
 
-  const { title, date, featuredImage, author, categories, content } = postData || {
-    title: '', date: '', featuredImage: '', author: '', categories: '', content : ''
-  }
+  const { title, date, featuredImage, author, categories, content } =
+    postData || {
+      title: "",
+      date: "",
+      featuredImage: "",
+      author: "",
+      categories: "",
+      content: "",
+    }
 
-
-  const image = featuredImage?.node?.mediaItemUrl.image || ''
+  const image = featuredImage?.node?.mediaItemUrl.image || ""
   const autor = author?.node?.name
   const tags = categories?.nodes
 
@@ -92,42 +96,43 @@ const IndexPage = ({ data }) => {
           </div>
         </article>
         <div className="global-wrapper">
-				<div className="articleBody">
-          <div
-							dangerouslySetInnerHTML={{
-								__html: content,
-							}}></div>
-				</div>
+          <div className="articleBody">
+            <div
+              dangerouslySetInnerHTML={{
+                __html: content,
+              }}
+            ></div>
+          </div>
 
-				<hr />
-				<div className="socialmedia-footer">
-					<TwitterShareButton url={postUrl} title={title}>
-						<TwitterIcon
-							size={30}
-							round={true}
-							iconFillColor="#6484a1"
-							bgStyle={{ fill: "transparent" }}
-						/>
-					</TwitterShareButton>
+          <hr />
+          <div className="socialmedia-footer">
+            <TwitterShareButton url={postUrl} title={title}>
+              <TwitterIcon
+                size={30}
+                round={true}
+                iconFillColor="#6484a1"
+                bgStyle={{ fill: "transparent" }}
+              />
+            </TwitterShareButton>
 
-					<FacebookShareButton url={postUrl}>
-						<FacebookIcon
-							size={30}
-							round={true}
-							iconFillColor="#6484a1"
-							bgStyle={{ fill: "transparent" }}
-						/>
-					</FacebookShareButton>
-					<WhatsappShareButton url={postUrl} title={title}>
-						<WhatsappIcon
-							size={26}
-							round={true}
-							iconFillColor="#6484a1"
-							bgStyle={{ fill: "transparent" }}
-						/>
-					</WhatsappShareButton>
-				</div>
-				{/* {author && (
+            <FacebookShareButton url={postUrl}>
+              <FacebookIcon
+                size={30}
+                round={true}
+                iconFillColor="#6484a1"
+                bgStyle={{ fill: "transparent" }}
+              />
+            </FacebookShareButton>
+            <WhatsappShareButton url={postUrl} title={title}>
+              <WhatsappIcon
+                size={26}
+                round={true}
+                iconFillColor="#6484a1"
+                bgStyle={{ fill: "transparent" }}
+              />
+            </WhatsappShareButton>
+          </div>
+          {/* {author && (
 					<footer>
 						<Bio
 							author={author?.frontmatter?.author}
@@ -137,19 +142,19 @@ const IndexPage = ({ data }) => {
 						/>
 					</footer>
 				)} */}
-			</div>
+        </div>
       </section>
     </Layout>
   )
 }
 
-export const Head = ({ data }) => {
+export const Head = ({ data,context }) => {
   const location = useLocation()
   const slug = location?.pathname.replace("blog/", "").replaceAll("/", "")
   const postData = data?.allWpPost?.nodes[0]
 
   const { title, excerpt } = postData
-
+console.log(context)
   return (
     <Seo title={title} description={excerpt}>
       <meta
@@ -172,40 +177,45 @@ export const Head = ({ data }) => {
   )
 }
 
-export const query = async (context) => await graphql`
-query Entradas {
-  allWpPost {
-    nodes {
-      author {
-        node {
-          avatar {
-            url
-          }
-          description
-          name
-          nickname
-        }
-      }
-      categories {
+export const query = async context => {
+  console.log(context)
+
+  const data = await graphql`
+    query Entradas {
+      allWpPost {
         nodes {
-          name
+          author {
+            node {
+              avatar {
+                url
+              }
+              description
+              name
+              nickname
+            }
+          }
+          categories {
+            nodes {
+              name
+              slug
+            }
+          }
+          title
+          featuredImage {
+            node {
+              sourceUrl
+              mediaItemUrl
+            }
+          }
           slug
+          content
+          date
+          excerpt
         }
       }
-      title
-      featuredImage {
-        node {
-          sourceUrl
-          mediaItemUrl
-        }
-      }
-      slug
-      content
-      date
-      excerpt
     }
-  }
+  `
+  return {data, context}
 }
-`
 
 export default IndexPage

@@ -5,10 +5,9 @@ const path = require( 'path' );
 // Create all pages.
 exports.createPages = async ( { actions, graphql } ) => {
 	await createFrontPage( { actions, graphql } );
-	// await createAllPosts( { actions, graphql } );
+	await createAllPosts( { actions, graphql } );
 
 };
-
 
 exports.onCreateWebpackConfig = ({ stage, actions }) => {
 	actions.setWebpackConfig({
