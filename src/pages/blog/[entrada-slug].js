@@ -13,23 +13,24 @@ import {
 	WhatsappShareButton,
 	WhatsappIcon,
 } from "react-share"
-import {
-	iconMontana2,
-	iconBisonte,
-	iconHojitas,
-	iconMontana,
-	iconPulpo,
-	iconHongos,
-	iconVibora,
-	iconArbol,
-	iconLobo,
-} from "../../site/img/iconos"
+// import {
+// 	iconMontana2,
+// 	iconBisonte,
+// 	iconHojitas,
+// 	iconMontana,
+// 	iconPulpo,
+// 	iconHongos,
+// 	iconVibora,
+// 	iconArbol,
+// 	iconLobo,
+// } from "../../site/img/iconos"
 
 const IndexPage = ({ data }) => {
   const location = useLocation()
-
+  const slug = location?.pathname.replace("blog/", "").replaceAll("/", "")
   const postUrl = `https://www.lasrepublicasdelosalvaje.blog/${location}`
-  const postData = data?.allWpPost?.nodes[0]
+  const postData = data?.allWpPost?.nodes.find(post => post.slug === slug)
+  
   const { title, date, featuredImage, author, categories, content } = postData
 
   const { mediaItemUrl: image } = featuredImage?.node
@@ -167,41 +168,40 @@ export const Head = ({ data }) => {
   )
 }
 
-export const query = async () =>
-  await graphql`
-    query Entradas {
-      allWpPost(filter: { slug: { eq: "axkan-kema-asi-mero2" } }) {
-        nodes {
-          author {
-            node {
-              avatar {
-                url
-              }
-              description
-              name
-              nickname
-            }
+export const query = async (context) => await graphql`
+query Entradas {
+  allWpPost {
+    nodes {
+      author {
+        node {
+          avatar {
+            url
           }
-          categories {
-            nodes {
-              name
-              slug
-            }
-          }
-          title
-          featuredImage {
-            node {
-              sourceUrl
-              mediaItemUrl
-            }
-          }
-          slug
-          content
-          date
-          excerpt
+          description
+          name
+          nickname
         }
       }
+      categories {
+        nodes {
+          name
+          slug
+        }
+      }
+      title
+      featuredImage {
+        node {
+          sourceUrl
+          mediaItemUrl
+        }
+      }
+      slug
+      content
+      date
+      excerpt
     }
-  `
+  }
+}
+`
 
 export default IndexPage
