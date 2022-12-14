@@ -9,9 +9,9 @@
  */
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `@gatsbyjs`,
+    title: `Las Repúblicas de lo Salvaje`,
+    description: "Formas de existencia. Cuerpos, flujos, palpitaciones que importan en este gran cuerpo llamado planeta Tierra.",
+    author: `JUNGLA`,
     siteUrl: `https://gatsbystarterdefaultsource.gatsbyjs.io/`,
   },
   plugins: [

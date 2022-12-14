@@ -4,7 +4,7 @@ import { Link } from "gatsby"
 
 const PostDetails = ({ post }) => {
 
-  const title = post?.title || post?.fields.slug
+  const title = post?.title || post?.slug
   const categories = post?.categories || []
   const image = post?.featuredImage?.node?.mediaItemUrl
   const date = post?.date
@@ -19,7 +19,7 @@ const PostDetails = ({ post }) => {
   return (
     <div className="shape-col-6 shape-col-12-sm post-item-list">
       <article className="post-list-item">
-        <Link to={post?.slug} itemProp="url">
+        <Link to={`blog/${post?.slug}`} itemProp="url">
           <div
             className="img-container"
             style={{
@@ -28,7 +28,7 @@ const PostDetails = ({ post }) => {
           >
             <img
             src={image}
-            alt=""
+            alt={title}
           />
           </div>
           <h3
