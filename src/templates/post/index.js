@@ -41,10 +41,10 @@ const Post = ({ data }) => {
       content: "",
     }
 
-  const image = featuredImage?.node?.mediaItemUrl.image || ""
+  const image = featuredImage?.node?.mediaItemUrl  || ""
   const autor = author?.node?.name
   const tags = categories?.nodes
-
+console.log(featuredImage)
   return (
     <Layout>
       <section className="section">
