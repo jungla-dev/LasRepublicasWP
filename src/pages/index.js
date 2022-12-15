@@ -14,7 +14,7 @@ const IndexPage = ({ data }) => {
       setEntradas(data?.allWpPost?.nodes)
     }
   }, [data])
-
+console.log(entradas)
   return (
     <Layout>
       <div className="global-wrapper">
@@ -58,6 +58,7 @@ export const query = graphql`
         slug
         content
         date
+        id
       }
     }
 
